@@ -9,10 +9,10 @@
 		$.get("{{site.blogfeed}}", function (data) {
 			console.log("here..");
 			console.log(data);
-			$.each(data.feed.entry.slice(0,10), function (i, el) {
-				var link = el.link.filter(function(o) { return o.rel == 'alternate' }).pop().href;
-				var title = el.title.$t
-					$('#blogArticles').append("<a target='_blank' href='" + link + "'>" + title + "</a><br><br>")
+			$.each(data.items.slice(0,19), function (i, el) {
+				var link = el.link;
+				var title = el.title;
+				$('#blogArticles').append("<a target='_blank' href='" + link + "'>" + title + "</a><br><br>")
 			});
 		},
      		"jsonp");
